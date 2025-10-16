@@ -1,0 +1,1343 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
+}
+
+:root {
+  --primary-color: #ffffff;
+  --secondary-color: #79ceff;
+  --banner-bg-color: #111111;
+  --trnding-bg: #000000;
+  --gradient1: #00dafd;
+  --gradient2: #0085d1;
+  --nav-link-color: #b6b6b6;
+  --active-color: #62e9ff;
+  --no-text: #01ade5;
+  --subtitle2-color: #93ebf9;
+  --card-bg-color: #1c1d1f;
+  --footer-bg: #17171b;
+}
+
+/* Common Classes */
+
+a {
+  display: inline-block;
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.container {
+  max-width: 1650px;
+  padding: 0 15px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -15px;
+}
+
+.col-70 {
+  width: 70%;
+  padding: 0 15px;
+}
+
+.col-50 {
+  width: 50%;
+  padding: 0 15px;
+}
+
+.col-33 {
+  width: 33.33%;
+  padding: 0 15px;
+}
+
+.col-30 {
+  width: 30%;
+  padding: 0 15px;
+}
+
+.col-25 {
+  width: 25%;
+  padding: 0 15px;
+}
+
+.active {
+  color: var(--active-color) !important;
+}
+
+.title1 {
+  font-size: 80px;
+  max-width: 1002px;
+  font-weight: 500;
+  text-align: center;
+  margin: 0 auto;
+  font-family: Montserrat, sans-serif;
+  color: var(--primary-color);
+  margin-bottom: 55px;
+}
+
+.title2 {
+  font-size: 30px;
+  font-weight: 450;
+  color: var(--nav-link-color);
+}
+
+.subtitle2 {
+  font-size: 70px;
+  font-weight: 500;
+  color: var(--subtitle2-color);
+}
+
+/* Header Section */
+
+header {
+  padding: 15px 0;
+  background-color: var(--banner-bg-color);
+}
+
+.nav-logo > a {
+  width: 180px;
+}
+
+.nav-logo > a > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+nav,
+.navbar-collapsed,
+.navbar-collapsed > ul,
+.nav-right {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-collapsed {
+  margin: 0 auto;
+}
+/* 
+.navbar-collapsed {
+  padding: 13px 30px;
+  border-radius: 20px;
+  background-color: #1A1A1A;
+} */
+
+.nav-links {
+  margin-right: 65px;
+  color: var(--nav-link-color);
+  font-size: 21px;
+  position: relative;
+}
+
+.navbar-collapsed > ul > li:last-child > .nav-links {
+  margin-right: 0 !important;
+}
+
+.nav-links:hover {
+  color: var(--active-color);
+}
+
+.nav-links::after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  background: var(--active-color);
+  bottom: -4px;
+  left: 30%;
+  width: 0;
+  transition: 0.6s ease-in-out;
+}
+
+.nav-links:hover::after {
+  width: 40%;
+}
+
+.search-btn {
+  width: 33px;
+  background: none;
+  border: none;
+}
+
+.search-btn:hover {
+  transform: scale(1.1);
+}
+
+.search-btn > button > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cart-img {
+  margin: 0 23px 0 13px;
+  background-color: none;
+  width: 33px;
+}
+
+.cart-img:hover {
+  transform: scale(1.1);
+}
+
+.cart-img > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.primary-btn {
+  padding: 14px 24px;
+  color: var(--nav-link-color);
+  border: 1px solid var(--secondary-color);
+  border-radius: 30px;
+  font-size: 21px;
+}
+
+.primary-btn:hover {
+  background-image: linear-gradient(
+    to right,
+    var(--gradient1),
+    var(--gradient2)
+  );
+  color: var(--banner-bg-color);
+  transition: all 0.5s ease-in-out;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  filter: blur(10px);
+  display: none;
+}
+
+.overlay.active {
+  z-index: 10;
+  display: block;
+}
+
+/* .close-btn {
+  display: none;
+} */
+
+/* Banner Section */
+
+.banner-sec {
+  padding: 40px 0 0;
+  /* min-height: 80vh; */
+  background-color: var(--banner-bg-color);
+}
+
+.title1 > span {
+  font-weight: bold;
+}
+
+.title1 > .span2 {
+  font-weight: 600;
+  background-image: linear-gradient(
+    to bottom,
+    var(--gradient1),
+    var(--gradient2)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.banner-row {
+  align-items: center;
+}
+
+.banner-img {
+  max-width: 611px;
+}
+
+.banner-img > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.banner-left-cntn > p {
+  font-size: 23px;
+  max-width: 350px;
+  font-weight: 500;
+  margin-bottom: 69px;
+  color: var(--nav-link-color);
+}
+
+.secondary-btn {
+  padding: 14px 30px;
+  color: var(--trnding-bg);
+  background-image: linear-gradient(
+    to right,
+    var(--gradient1),
+    var(--gradient2)
+  );
+  border-radius: 8px;
+  font-size: 21px;
+  margin-right: 25px;
+}
+
+.secondary-btn:hover {
+  color: var(--primary-color);
+  background: var(--banner-bg-color);
+  transition: all 0.5s ease-in-out;
+  outline: 1px solid var(--no-text);
+}
+
+.tartiary-btn {
+  padding: 16px 50px;
+  color: var(--primary-color);
+  background-color: var(--banner-bg-color);
+  outline: 1px solid var(--secondary-color);
+  border-radius: 8px;
+  font-size: 21px;
+}
+
+.tartiary-btn:hover {
+  color: var(--trnding-bg);
+  background-image: linear-gradient(
+    to right,
+    var(--gradient1),
+    var(--gradient2)
+  );
+  transition: all 0.5s ease-in-out;
+}
+
+.banner-right-cntn {
+  text-align: center;
+}
+
+.banner-no {
+  font-size: 55px;
+  font-weight: 400;
+  color: var(--primary-color);
+}
+
+.banner-right-cntn > p {
+  font-size: 19px;
+  color: var(--no-text);
+}
+
+/* Auction Section */
+
+.auction-sec {
+  padding: 90px 0;
+  background-color: var(--trnding-bg);
+  /* background-color: white; */
+}
+
+.auction-row {
+  align-items: center;
+}
+
+.auction-para > p {
+  color: var(--nav-link-color);
+  max-width: 479px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.auction-btn {
+  display: flex;
+  align-items: center;
+  margin-left: 0 auto;
+  justify-content: center;
+}
+
+.left-white-btn,
+.right-black-btn {
+  width: 25px;
+  padding: 8px;
+  border-radius: 20px;
+}
+
+.left-white-btn {
+  margin-right: 45px;
+}
+
+.left-white-btn > img,
+.right-black-btn > img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.left-white-btn {
+  background-color: var(--trnding-bg);
+  outline: 1px solid rgb(52, 46, 46);
+}
+
+.right-black-btn {
+  background-color: var(--primary-color);
+}
+
+.card-top-info {
+  padding: 10px;
+  position: absolute;
+  top: 0;
+  right: 70px;
+  z-index: 1;
+}
+
+.card-top-info > p {
+  color: var(--nav-link-color);
+  font-size: 14px;
+}
+
+.card-top-info > h4 {
+  color: var(--subtitle2-color);
+  font-size: 17px;
+  font-weight: 300;
+}
+
+.auction-img1,
+.auction-img2,
+.auction-img3 {
+  max-width: 518px;
+  padding: 20px;
+  background: var(--card-bg-color);
+  border-radius: 15px;
+  box-shadow: inset 0 0 20px rgba(75, 60, 60, 0.3); /* inner shadow */
+  position: relative;
+}
+
+.auction-img1 > img,
+.auction-img2 > img,
+.auction-img3 > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-info {
+  display: flex;
+  padding: 10px;
+  border-radius: 10px;
+  background: var(--card-bg-color);
+  position: absolute;
+  bottom: 15px;
+  left: 50px;
+  max-width: 265px;
+}
+
+.right-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+}
+
+h5 {
+  color: var(--nav-link-color);
+}
+
+.left-info > p,
+.right-info > p {
+  color: var(--subtitle2-color);
+  font-size: 15px;
+}
+
+/* Sell Section */
+
+.sell-section {
+  padding: 50px 0;
+  /* min-height: 80vh; */
+  background-color: var(--banner-bg-color);
+}
+
+.sell-row {
+  align-items: center;
+}
+
+.title3 {
+  max-width: 483px;
+  font-size: 50px;
+  color: var(--primary-color);
+}
+
+.sell-left-cntn > p {
+  max-width: 430px;
+  font-size: 16px;
+  margin: 33px 0 30px 0;
+  color: var(--primary-color);
+}
+
+.bid-learn-btn {
+  padding: 13px 40px;
+  color: var(--nav-link-color);
+  background-color: var(--card-bg-color);
+  border-radius: 10px;
+  box-shadow: inset 0 0 20px rgba(75, 60, 60, 0.3);
+  border-bottom: 2px solid var(--active-color);
+  border-right: 2px solid var(--active-color);
+  /* chatgpt as border-radius is not working still not working */
+  background-clip: padding-box;
+  overflow: hidden;
+}
+
+.sell-card {
+  text-align: center;
+  padding: 55px 16px 39px;
+  /* border: 1px solid; */
+  border-width: 1px; /* Set the desired border thickness */
+  border-style: solid; /* Required for border-image to work */
+  border-image: linear-gradient(to bottom, var(--gradient1), var(--gradient2)) 1;
+  border-radius: 10px;
+  margin: 20px 20px;
+  max-width: 385px;
+}
+
+.sell-img {
+  max-width: 53px;
+  margin: 0 auto;
+}
+.sell-img > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.title4 {
+  font-size: 22px;
+  margin: 21px auto 17px;
+  color: var(--primary-color);
+}
+
+.sell-card > p {
+  max-width: 352px;
+  font-size: 13px;
+  margin: 0 auto;
+  color: var(--primary-color);
+}
+
+/* Artist Section */
+
+.artist-sec {
+  padding: 90px 0;
+  background-color: var(--trnding-bg);
+  /* background-color: white; */
+}
+
+.artist-row {
+  align-items: center;
+}
+
+.artist-para > p {
+  color: var(--nav-link-color);
+  max-width: 479px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.auction-btn {
+  display: flex;
+  align-items: center;
+  margin-left: 0 auto;
+  justify-content: center;
+}
+
+.left-white-btn,
+.right-black-btn {
+  width: 25px;
+  padding: 8px;
+  border-radius: 20px;
+}
+
+.left-white-btn {
+  margin-right: 45px;
+}
+
+.left-white-btn > img,
+.right-black-btn > img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.left-white-btn {
+  background-color: var(--trnding-bg);
+  outline: 1px solid rgb(52, 46, 46);
+}
+
+.right-black-btn {
+  background-color: var(--primary-color);
+}
+
+.art-card-bg-img {
+  max-width: 377px;
+  border-radius: 15px;
+  position: relative;
+}
+
+.art-card-bg-img > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.round-crd-img {
+  max-width: 103px;
+  position: absolute;
+  bottom: -56px;
+  left: 134px;
+}
+
+.round-crd-img > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.art-card-cntn {
+  margin-top: 57px;
+}
+
+.swiper-slide {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.artist-card {
+  max-width: 377px;
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid var(--nav-link-color);
+  margin: 0 auto;
+}
+
+.art-card-cntn {
+  text-align: center;
+  color: var(--primary-color);
+}
+
+.title5 {
+  font-size: 30px;
+}
+
+.art-card-cntn > p {
+  font-size: 17px;
+}
+
+.post-no {
+  font-size: 17px;
+}
+
+.artist-profile > p,
+.artist-posts > p,
+.artist-following > p {
+  font-size: 15px;
+}
+
+.artist-profile {
+  text-align: center;
+}
+
+.artist-posts {
+  margin: 15px;
+}
+
+.art-card-row {
+  align-items: center;
+}
+
+.artist-btn {
+  padding: 8px 18px;
+  color: var(--trnding-bg);
+  background-image: linear-gradient(
+    to right,
+    var(--gradient1),
+    var(--gradient2)
+  );
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+.artist-btn:hover {
+  color: var(--primary-color);
+  background: var(--banner-bg-color);
+  transition: all 0.5s ease-in-out;
+  outline: 1px solid var(--no-text);
+}
+
+/* Subscribe Section */
+
+.subscribe-sec {
+  padding: 50px 0;
+  background: var(--trnding-bg);
+}
+
+.subscribe-hdr {
+  font-size: 30px;
+  color: var(--primary-color);
+}
+
+.sub-cntn-img-sec {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border: 1px solid var(--gradient2);
+  border-radius: 10px;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.subscribe-cntn > p {
+  font-size: 12px;
+  max-width: 460px;
+  margin: 20px 0 20px 0;
+  color: var(--nav-link-color);
+}
+
+.sub-input {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  background: var(--card-bg-color);
+}
+.subscrib-btn {
+  color: var(--trnding-bg);
+  background: linear-gradient(to right, var(--gradient1), var(--gradient2));
+  padding: 8px 30px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.subscrib-btn:hover {
+  background: var(--banner-bg-color);
+  outline: 1px solid var(--active-color);
+  color: var(--nav-link-color);
+  transition: all 0.5s ease-in-out;
+}
+
+.sub-img {
+  max-width: 200px;
+}
+
+.sub-img > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Footer Section */
+
+.footer-sec {
+  padding: 50px 0;
+  background: var(--footer-bg);
+}
+
+.footer-logo > a {
+  max-width: 281px;
+}
+
+.footer-logo > a > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  margin-bottom: 14px;
+}
+.foot-social-icons > ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.foot-social-link {
+  margin-right: 20px;
+}
+
+.foot-social-icons > ul > li > a > img {
+  width: 30px;
+  margin-bottom: 16px;
+}
+
+.play-store-sec > a > img {
+  margin-bottom: 10px;
+  width: 160px;
+}
+
+.footer-hdr,
+.footer-sub-hdr {
+  color: var(--nav-link-color);
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+
+.footer-links {
+  color: var(--primary-color);
+  margin-bottom: 15px;
+}
+
+.footer-links:hover {
+  color: var(--active-color);
+}
+
+.collector,
+.friend {
+  color: var(--nav-link-color);
+  margin-bottom: 8px;
+}
+
+/* Media Queries */
+
+@media screen and (max-width: 1600px) {
+  /* Sell Section */
+
+  .sell-row > .col-30 {
+    width: 100%;
+  }
+
+  .title3 {
+    margin: 0 auto;
+  }
+
+  .sell-left-cntn > p {
+    margin: 33px auto 30px;
+  }
+
+  .sell-left-cntn {
+    text-align: center;
+  }
+
+  .sell-row {
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  /* Header Section */
+
+  .close-btn {
+    display: block;
+    margin-left: auto;
+    position: relative;
+    z-index: 30;
+    transition: all 0.5s linear;
+  }
+
+  .close-btn.open::after {
+    display: none;
+  }
+
+  .close-btn.open > span {
+    transform: rotate(45deg) translateX(-5px);
+  }
+
+  .close-btn.open::before {
+    transform: rotate(-45deg) translateX(-6px);
+  }
+
+  .close-btn > span {
+    display: inline-block;
+    height: 2px;
+    width: 30px;
+    background: var(--active-color);
+    transition: all 0.5s linear;
+  }
+
+  .close-btn::after {
+    position: absolute;
+    content: "";
+    height: 2px;
+    width: 30px;
+    background: var(--active-color);
+    bottom: -3px;
+    left: 0;
+    transition: all 0.5s linear;
+  }
+
+  .close-btn::before {
+    position: absolute;
+    content: "";
+    height: 2px;
+    width: 30px;
+    background: var(--active-color);
+    top: 3px;
+    left: 0;
+    transition: all 0.5s linear;
+  }
+
+  /* .navbar-collapsed > ul {
+    display: none;
+  } */
+
+  .nav-right {
+    display: none;
+  }
+
+  .navbar-collapsed {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    bottom: 0;
+    width: 70%;
+    height: 100vh;
+    background: var(--banner-bg-color);
+    transition: all 0.5s linear;
+    z-index: 20;
+  }
+
+  .navbar-collapsed {
+    padding: 100px 0;
+  }
+
+  .navbar-collapsed > ul {
+    flex-direction: column;
+  }
+
+  .navbar-collapsed > ul,
+  .navbar-collapsed {
+    flex-direction: column;
+  }
+
+  .nav-links {
+    margin: 10px 0;
+  }
+
+  /* Banner Section */
+
+  .col-33 {
+    width: 100%;
+  }
+
+  .title1 {
+    margin-bottom: 30px;
+  }
+
+  .banner-img {
+    margin: 50px auto 40px;
+  }
+
+  .banner-left-cntn,
+  .banner-left-cntn > p {
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 30px;
+  }
+
+  .secondary-btn,
+  .tartiary-btn {
+    margin-bottom: 30px;
+  }
+
+  .banner-right-cntn {
+    margin: 30px 0 30px 0;
+  }
+
+  /* Make the middle column (banner image) appear first */
+  .row.banner-row .col-33:nth-child(2) {
+    order: -1;
+  }
+
+  /* Auction Section */
+
+  .auction-hdr {
+    text-align: center;
+  }
+
+  .auction-para > p {
+    margin: 0 auto 20px;
+  }
+
+  .auction-btn {
+    text-align: center;
+  }
+
+  /* Sell Section */
+
+  .sell-left-cntn {
+    text-align: center;
+  }
+
+  .sell-row {
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Artist Section */
+  .round-crd-img {
+    left: 120px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  /* Banner section */
+  .title1 {
+    font-size: 70px;
+  }
+
+  /* Auction Section */
+  /* .auction-para {
+    margin: 0 auto 20px;
+  } */
+
+  /* Sell Section */
+  .sell-left-cntn > p {
+    margin: 33px auto 30px;
+  }
+
+  /* Artist Section */
+
+  .artist-para > p {
+    margin: 0 auto 20px;
+  }
+
+  /* Footer Section */
+  .col-25 {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  /* Sell Section */
+
+  .title3 {
+    font-size: 40px;
+  }
+
+  .title4 {
+    font-size: 20px;
+  }
+
+  .sell-card-row {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .sell-card-row > .col-50 {
+    width: 100%; /* To make that single vartically aligned sell-card in center and capture 100% width */
+  }
+
+  .sell-card {
+    margin: 20px auto;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  /* banner-section */
+
+  .banner-sec {
+    padding: 20px 0;
+  }
+
+  .title1 {
+    font-size: 50px;
+  }
+
+  .banner-img {
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+    margin: 20px auto 20px;
+  }
+
+  .banner-img img {
+    width: 300px !important;
+    height: auto;
+  }
+
+  .banner-left-cntn > p {
+    font-size: 18px;
+  }
+
+  .secondary-btn,
+  .tartiary-btn {
+    padding: 16px 25px;
+  }
+
+  .banner-no {
+    font-size: 40px;
+  }
+
+  .banner-right-cntn > p {
+    font-size: 18px;
+  }
+
+  /* Auction Section */
+
+  .title2 {
+    font-size: 18px;
+  }
+
+  .subtitle2 {
+    font-size: 38px;
+  }
+
+  .auction-img1,
+  .auction-img2,
+  .auction-img3 {
+    margin: 0 auto;
+  }
+  /* 
+  .card-top-info {
+    right: 200px;
+  } */
+
+  .card-top-info {
+    right: 25%;
+  }
+
+  .card-info {
+    left: 20%;
+  }
+
+  /* Footer Section */
+  .col-25 {
+    width: 100%;
+    align-items: center;
+    margin: 0 auto;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .footer-logo {
+    width: 200px;
+    margin: 0 auto;
+  }
+
+  .footer-icon-sec > ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 0 auto;
+  }
+
+  .foot-social-link > img {
+    width: 20px;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  /* Header Section */
+
+  .nav-logo > a {
+    width: 130px;
+  }
+
+  .nav-links {
+    font-size: 16px;
+  }
+
+  .close-btn > span,
+  .close-btn::after,
+  .close-btn::before {
+    height: 1px;
+    width: 20px;
+  }
+
+  /* Banner Section */
+
+  .banner-sec {
+    padding: 15px 0;
+  }
+  .title1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+  }
+
+  .banner-img {
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+    margin: 20px auto 20px;
+  }
+
+  .banner-img img {
+    width: 290px !important;
+    height: auto;
+  }
+
+  .banner-left-cntn > p {
+    font-size: 13px;
+  }
+
+  .secondary-btn,
+  .tartiary-btn {
+    padding: 10px 15px;
+    font-size: 14px;
+    margin-bottom: 7px;
+  }
+
+  .banner-no {
+    font-size: 20px;
+  }
+
+  .banner-right-cntn > p {
+    font-size: 18px;
+  }
+
+  /* Auction Section */
+
+  .auction-sec {
+    padding: 20px 0;
+  }
+
+  .title2 {
+    font-size: 16px;
+  }
+  .subtitle2 {
+    font-size: 26px;
+  }
+
+  .auction-para > p {
+    font-size: 12px;
+  }
+
+  .auction-btn {
+    margin-bottom: 12px;
+  }
+  .card-info {
+    left: 42px;
+  }
+
+  .card-top-info {
+    right: 37px;
+  }
+
+  .card-top-info > h4 {
+    font-size: 12px;
+  }
+
+  .card-top-info > p {
+    font-size: 12px;
+  }
+
+  .left-info,
+  .right-info {
+    font-size: 12px;
+  }
+  .left-info > p,
+  .right-info > p {
+    font-size: 12px;
+  }
+
+  /* Sell Section */
+
+  .sell-left-cntn > p {
+    font-size: 14px;
+    margin: 10px auto 10px;
+  }
+  .title3 {
+    font-size: 26px;
+  }
+
+  .title4 {
+    font-size: 14px;
+  }
+
+  .sell-img {
+    width: 40px;
+  }
+
+  .sell-card > p {
+    font-size: 12px;
+  }
+
+  .bid-learn-btn {
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+
+  /* Artist Section */
+
+  .artist-para > p {
+    margin: 0 auto 20px;
+  }
+  .auction-btn {
+    text-align: center;
+  }
+
+  /* Subscribe Section */
+
+  .subscribe-hdr {
+    font-size: 20px;
+  }
+  .subscribe-cntn > p {
+    font-size: 10px;
+  }
+  .subscrib-btn {
+    padding: 10px;
+    font-size: 12px;
+  }
+
+  /* Footer Section */
+
+  .footer-logo {
+    width: 100px;
+  }
+  .footer-sub-hdr,
+  .footer-hdr {
+    font-size: 14px;
+    margin-top: 20px;
+  }
+  .footer-links {
+    font-size: 12px;
+  }
+  .foot-social-icons {
+    margin-bottom: 14px;
+  }
+  .foot-social-icons > ul > li > a > img {
+    width: 23px;
+  }
+  .play-store-sec > a > img {
+    margin-bottom: 10px;
+    width: 120px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  /* Artist Section */
+  
+  .artist-para {
+    font-size: 14px;
+  }
+  .round-crd-img {
+    left: 60px;
+  }
+  .title5 {
+    font-size: 20px;
+  }
+  .art-card-cntn > p {
+    font-size: 14px;
+  }
+  .artist-profile > p,
+  .artist-posts > p,
+  .artist-following > p {
+    font-size: 12px;
+  }
+  .round-crd-img {
+    width: 95px;
+  }
+  .artist-btn {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  /* Artist Section */
+  .round-crd-img {
+    left: 85px;
+  }
+}
